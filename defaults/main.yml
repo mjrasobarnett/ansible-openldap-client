@@ -1,2 +1,16 @@
 ---
-# defaults file for /home/mjr208/projects/github/mjrasobarnett/ansible-openldap-client
+# Package repository name to enable when installing (if custom repo used)
+openldap_client_enablerepo: ""
+# Package state; use `present` to make sure it's installed, or `latest`
+# if you want to upgrade or switch versions using a new repo.
+openldap_client_packages_state: present
+
+# Enable to manage the ldap.conf file
+openldap_client_manage_config: true
+openldap_client_conf_template: "ldap.conf.j2"
+
+# Example templated variables that can be set in ldap.conf
+openldap_client_manage_certs: false
+#openldap_client_search_base:
+#openldap_client_uri:
+#openldap_client_ca_cert:

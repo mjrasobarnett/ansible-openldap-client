@@ -1,5 +1,1 @@
 ---
-- hosts: localhost
-  remote_user: root
-  roles:
-    - /home/mjr208/projects/github/mjrasobarnett/ansible-openldap-client

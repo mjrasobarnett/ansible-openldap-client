@@ -1,0 +1,30 @@
+# LDAP Defaults
+#
+
+# See ldap.conf(5) for details
+# This file should be world readable but not world writable.
+
+#BASE   dc=example,dc=com
+#URI    ldap://ldap.example.com ldap://ldap-master.example.com:666
+
+#SIZELIMIT      12
+#TIMELIMIT      15
+#DEREF          never
+
+{% if openldap_client_ca_cert_dir is defined %}
+TLS_CACERTDIR {{ openldap_client_ca_cert_dir }}
+{% else %}
+TLS_CACERTDIR /etc/openldap/certs
+{% endif %}
+
+# Turning this off breaks GSSAPI used with krb5 when rdns = false
+SASL_NOCANON    on
+{% if openldap_client_search_base is defined %}
+BASE {{ openldap_client_search_base }}
+{% endif %}
+{% if openldap_client_uri is defined %}
+URI {{ openldap_client_uri }}
+{% endif %}
+{% if openldap_client_ca_cert is defined %}
+TLS_CACERT {{ openldap_client_ca_cert }}
+{% endif %}

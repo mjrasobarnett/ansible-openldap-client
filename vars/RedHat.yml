@@ -1,0 +1,10 @@
+---
+openldap_client_packages:
+  - 'openldap'
+  - 'openldap-clients'
+
+openldap_client_conf_path: "/etc/openldap"
+openldap_client_conf_filename: "ldap.conf"
+
+openldap_client_cacerts_directory: "cacerts"
+openldap_client_certs_directory: "certs"

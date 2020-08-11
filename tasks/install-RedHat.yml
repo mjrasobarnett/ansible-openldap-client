@@ -1,0 +1,6 @@
+---
+- name: "Ensure openldap client packages are installed"
+  yum:
+    name: "{{ openldap_client_packages }}"
+    state: "{{ openldap_client_packages_state }}"
+    enablerepo: "{{ openldap_client_enablerepo | default(omit, true) }}"
